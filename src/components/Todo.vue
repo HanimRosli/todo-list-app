@@ -1,6 +1,8 @@
 <template>
 <li class="d-flex align-items-center list-group-item">
-
+    <button class="btn border-0 flex-grow-1 text-left shadow-none" :class="{ completed }" @click="$emit('on-toggle')" v-if="!isEditing">
+        <span>{{ description }}</span>
+    </button>
     <form v-else class="flex-grow-1" @submit.prevent="finishEditing()">
         <input type="text" class="form-control" v-model="newTodoDescription" @blur="finishEditing()" ref="newTodo" />
     </form>
